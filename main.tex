@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathtools,physics}
+\usepackage{algorithmic}
+\usepackage{enumitem}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+
+ 
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+%If you want to title your bold things something different just make another thing exactly like this but replace "problem" with the name of the thing you want, like theorem or lemma or whatever
+
+%bib..
+\addbibresource{proposalBib.bib}
+
+\begin{document}
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+%Good resources for looking up how to do stuff:
+%Binary operators: http://www.access2science.com/latex/Binary.html
+%General help: http://en.wikibooks.org/wiki/LaTeX/Mathematics
+%Or just google stuff
+ 
+\title{CMSE890: Project Proposal}
+\author{David Rimel, Ben Bartles}
+\maketitle
+
+Magnetic Resonant Imaging (MRI) is a powerful medical imaging technique that uses external magnetic fields to effectively sample the frequency response (k-space). MRI has many benefits over other imaging modalities such as, PET or SPECT, due to its ability to accurately capture tissue contrast and no required radioisotope injections. Unfortunately, MRI scans can take up to an hour to acquire \cite{Zhang_2019_CVPR}. These long acquisition times are expensive to perform and unconformable for the patients as they have to sit still in the device for the entirety of the scan.\\
+
+One common method for speeding up MRI acquisition time is to is the reduce the number of k-space measurements \cite{fastMRI}. Images reconstructed from these under-sampled measurements often have aliasing effects that make them too noise for medical experts to accurately interpret. One solution to this problem is to use a Machine Learning (ML) method to more accurately reconstruct under-sampled MRI images this solution \cite{fastMRI}.\\
+
+The goal of this project is compared different reconstruction methods for under-sampled MRI images.
+First, we will implement the two standard solutions to this problem that are discussed \cite{fastMRI}; that is, we will implement the root-mean-squared (RMS) and the UNET Reconstruction algorithms in order to provide a base-line measurement for how well these algorithms perform. We will use  mean squared error between reconstructed and reference image, and peak signal-to-noise ratio as metrics for the accuracy of the reconstruction algorithm. we will then modify the UNET by using common data science practices such as Feature selection, hyper-parameter tuning, and pre-processing the inputs using different image filtering methods. We will then compare how well our modified UNET performs against the two standard solutions.
+
+
+
+%This is to test the bib %\cite{fastMRI},\cite{Zhang_2019_CVPR}
+
+\printbibliography
+
+\end{document}
